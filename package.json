@@ -1,0 +1,22 @@
+{
+  "name": "svg_logo_maker",
+  "version": "1.0.0",
+  "description": "This package will create a SVG logo that has a nice graphic and also miniminize the storage space",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sccorneille100/SVG_Logo_Maker.git"
+  },
+  "author": "Sylvestre Corneille",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Sccorneille100/SVG_Logo_Maker/issues"
+  },
+  "homepage": "https://github.com/Sccorneille100/SVG_Logo_Maker#readme",
+  "dependencies": {
+    "inquirer": "^8.2.4"
+  }
+}
