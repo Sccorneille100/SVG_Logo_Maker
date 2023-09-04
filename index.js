@@ -48,7 +48,7 @@ function logoBuilder (){
 
         .then ((response)=>{
             const createdLogo= new Logo (response.charInLogo, response.textColor, response.shapes, response.colorOfLogo);
-            
+            console.log(createdLogo)
             console.log(createdLogo)
             var figure;
             switch(createdLogo.shapes){
@@ -65,15 +65,12 @@ function logoBuilder (){
                     break;
             
             }
-            let logosvg = `<svg width="300px" height="200px" xmlns="http://www.w3.org/2000/svg">
-                    
-                              <  ${figure.value} fill="${createdLogo.colorOfLogo}"/>
-                                <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" 
-                                font-size="40px" font-family="Georgia" 
-                                fill="${createdLogo.textColor}">${createdLogo.charInLogo}</text>
-                        </svg>`;
-
-            fs.writeFile("logo.svg",logosvg, (err)=> 
+            figure.setColor(createdLogo.colorOfLogo);
+            const svg = new SVG();
+            svg.setText(createdLogo.charInLogo, createdLogo.textColor);
+            svg.setShape(figure)
+            const svgMarkup = svg.render();
+            return fs.writeFile("logo.svg", svgMarkup, (err)=> 
                err ? console.log(err): console.log ( "The logo has been successfully created"));
         })
 
